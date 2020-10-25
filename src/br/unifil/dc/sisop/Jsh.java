@@ -1,16 +1,16 @@
 package br.unifil.dc.sisop;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
-
+/**
+ * Write a description of class Jsh here.
+ *
+ * @author Ricardo Inacio Alvares e Silva
+ * @version 180823
+ */
 public final class Jsh {
-
-    public static String userName;
-    public static String userDir;
-    public static int    userUID;
-
+    
+    /**
+    * Funcao principal do Jsh.
+    */
     public static void promptTerminal() {
 
         while (true) {
@@ -20,82 +20,61 @@ public final class Jsh {
     	}
     }
 
+    /**
+    * Escreve o prompt na saida padrao para o usuário reconhecê-lo e saber que o
+    * terminal está pronto para receber o próximo comando como entrada.
+    */
     public static void exibirPrompt() {
 
-        userName  = System.getProperty("user.name");
-        userDir = System.getProperty("user.dir");
-
-        try {
-            String command = "id -u "+userName;
-            Process child = Runtime.getRuntime().exec(command);
-
-            InputStream in = child.getInputStream();
-            byte[] arrSaida = in.readAllBytes();
-
-            userUID = arrSaida[0];
-        }catch (IOException e){
-        }
-        System.out.print(userName + "#" + userUID + ":" + userDir + "% ");
-
+        throw new RuntimeException("Método ainda não implementado.");
     }
 
+    /**
+    * Preenche as strings comando e parametros com a entrada do usuario do terminal.
+    * A primeira palavra digitada eh sempre o nome do comando desejado. Quaisquer
+    * outras palavras subsequentes sao parametros para o comando. A palavras sao
+    * separadas pelo caractere de espaco ' '. A leitura de um comando eh feita ate
+    * que o usuario pressione a tecla <ENTER>, ou seja, ate que seja lido o caractere
+    * EOL (End Of Line).
+    *
+    * @return 
+    */
     public static ComandoPrompt lerComando() {
 
-        Scanner sc1 = new Scanner(System.in);
-        String cm = sc1.nextLine();
-
-        ComandoPrompt cmdPrompt = new ComandoPrompt(cm);
-        return cmdPrompt;
+        throw new RuntimeException("Método ainda não implementado.");
     }
 
-
+    /**
+    * Recebe o comando lido e os parametros, verifica se eh um comando interno e,
+    * se for, o executa.
+    * 
+    * Se nao for, verifica se é o nome de um programa terceiro localizado no atual 
+    * diretorio de trabalho. Se for, cria um novo processo e o executa. Enquanto
+    * esse processo executa, o processo do uniterm deve permanecer em espera.
+    *
+    * Se nao for nenhuma das situacoes anteriores, exibe uma mensagem de comando ou
+    * programa desconhecido.
+    */
     public static void executarComando(ComandoPrompt comando) {
-        switch (comando.getNome()){
-            case "encerrar":
-                System.exit(0);
-            case "relogio":
-                ComandosInternos.exibirRelogio();
-                break;
-            case "la":
-                ComandosInternos.escreverListaArquivos(java.util.Optional.ofNullable(userDir));
-                break;
-            case "cd":
-                ComandosInternos.criarNovoDiretorio((String)comando.getArgumentos().get(0));
-                break;
-            case "ad":
-                ComandosInternos.apagarDiretorio((String)comando.getArgumentos().get(0));
-                break;
-            case "mdt":
-                ComandosInternos.mudarDiretorioTrabalho((String)comando.getArgumentos().get(0));
-                break;
-            default:
-                executarPrograma(comando);
-                break;
-        }
+        throw new RuntimeException("Método ainda não implementado.");
     }
 
     public static int executarPrograma(ComandoPrompt comando) {
-        Runtime runTime = Runtime.getRuntime();
-        File curDir = new File(".");
-        File[] filesList = curDir.listFiles();
-        for(File f : filesList){
-            if(f.isFile()){
-                if ((String)comando.getArgumentos().get(0) == f.getName()){
-                    try {
-                        String executablePath = f.getName();
-                        Process process = runTime.exec(executablePath);
-                    }catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-        return 1;
+        throw new RuntimeException("Método ainda não implementado.");
     }
-
+    
+    
+    /**
+     * Entrada do programa. Provavelmente você não precisará modificar esse método.
+     */
     public static void main(String[] args) {
 
         promptTerminal();
     }
+    
+    
+    /**
+     * Essa classe não deve ser instanciada.
+     */
     private Jsh() {}
 }
