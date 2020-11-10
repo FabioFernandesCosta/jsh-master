@@ -1,4 +1,4 @@
-package br.unifil.dc.sisop;
+package main.java.jsh.so;
 
 import java.io.File;
 import java.io.IOException;
