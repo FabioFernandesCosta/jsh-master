@@ -12,6 +12,12 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
+  <scm>
+    <connection>scm:git:https://github.com/FabioFernandesCosta/jsh-master</connection>
+    <developerConnection>scm:git:https://github.com/FabioFernandesCosta/jsh-master</developerConnection>
+    <url>https://github.com/FabioFernandesCosta/jsh-master</url>
+  </scm>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -96,7 +102,15 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>3.0.0-M1</version>
+          <configuration>
+            <tagBase>https://github.com/FabioFernandesCosta/jsh-master/releases</tagBase>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
