@@ -20,10 +20,8 @@
   </scm>
 
   <distributionManagement>
-    <downloadUrl>https://github.com/FabioFernandesCosta/jsh-master</downloadUrl>
     <repository>
       <uniqueVersion>true</uniqueVersion>
-      <id>jsh</id>
       <url>https://github.com/FabioFernandesCosta/jsh-master</url>
       <layout>default</layout>
     </repository>
