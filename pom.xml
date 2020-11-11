@@ -21,7 +21,9 @@
 
   <distributionManagement>
     <repository>
-      <uniqueVersion>true</uniqueVersion>
+      <uniqueVersion>false</uniqueVersion>
+      <id>main</id>
+      <name>Myrepo</name>
       <url>https://github.com/FabioFernandesCosta/jsh-master</url>
       <layout>default</layout>
     </repository>
