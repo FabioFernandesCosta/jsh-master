@@ -82,5 +82,5 @@ public final class ComandosInternos {
         return 1;
 
     }
-    private ComandosInternos() {}
+    public ComandosInternos() {}
 }
